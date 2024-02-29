@@ -63,7 +63,7 @@ public class DownloaderAndZipper implements Observer{
      */
     private Path downloadFile(String urlString, String fileName) throws IOException {
         URL url = new URL(urlString);
-        Path tempDir = Paths.get("ejercicio2");
+        Path tempDir = Paths.get("ejercicio2descargas");
         Files.createDirectories(tempDir); // Asegura que el directorio exista
         Path filePath = tempDir.resolve(fileName + ".html");
 
@@ -81,7 +81,7 @@ public class DownloaderAndZipper implements Observer{
      * @throws IOException Si ocurre un error durante la compresión.
      */
     private void compressFiles(List<Future<Path>> downloadedFiles) throws IOException {
-        Path zipFilePath = Paths.get("ejercicio2/downloaded_files.zip");
+        Path zipFilePath = Paths.get("ejercicio2descargas/downloaded_files.zip");
 
         try (ZipOutputStream zos = new ZipOutputStream(Files.newOutputStream(zipFilePath))) {
             for (Future<Path> future : downloadedFiles) {
