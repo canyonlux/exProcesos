@@ -17,7 +17,7 @@ public class Main {
 
         Scanner scanner = new Scanner(System.in);
         while (true) {
-            System.out.println("Ingrese una URL para descargar (deje en blanco y presione enter para finalizar):");
+            System.out.println("Ingrese una URL para descargar (deje en blanco y presione ENTER para finalizar):");
             String input = scanner.nextLine();
 
             if (input.isEmpty()) {

@@ -64,7 +64,7 @@ public class DownloaderAndZipper implements Observer{
     private Path downloadFile(String urlString, String fileName) throws IOException {
         URL url = new URL(urlString);
         Path tempDir = Paths.get("ejercicio2descargas");
-        Files.createDirectories(tempDir); // Asegura que el directorio exista
+        Files.createDirectories(tempDir);
         Path filePath = tempDir.resolve(fileName + ".html");
 
         try (InputStream in = url.openStream()) {
@@ -75,7 +75,7 @@ public class DownloaderAndZipper implements Observer{
     }
 
     /**
-     * Comprime todos los archivos descargados en un único archivo ZIP.
+     * Comprime todos los archivos descargados en un único archivo ZIP. la ruta del archivo ZIP se imprime en la consola.
      *
      * @param downloadedFiles Lista de futuros que representan las rutas a los archivos descargados.
      * @throws IOException Si ocurre un error durante la compresión.
@@ -92,7 +92,7 @@ public class DownloaderAndZipper implements Observer{
                 Files.copy(file, zos);
                 zos.closeEntry();
 
-                Files.delete(file); // Opcional: elimina el archivo después de agregarlo al zip
+                Files.delete(file);
             }
         } catch (InterruptedException | ExecutionException e) {
             e.printStackTrace();
